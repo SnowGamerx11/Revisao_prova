@@ -2,145 +2,326 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Revisão - Ciências</title>
+
 </head>
+
 
 <style>
 
+    * {
+        box-sizing: border-box;
+    }
+
+
     body {
-        height: 100vh;
-        width: 100vw;
+
+        min-height: 100vh;
+
         margin: 0;
+
+        padding: 10px;
 
         background-color: black;
 
         display: flex;
+
         justify-content: center;
+
         align-items: center;
+
     }
 
 
     .box {
+
         background-image: url("paperpng.png");
+
         background-size: 100% 100%;
+
         background-position: center;
+
         background-repeat: no-repeat;
 
         box-shadow: 0px 0px 35px white;
 
-        width: 30%;
-        height: 90%;
+        width: min(500px, 95vw);
 
-        max-width: 500px;
-        max-height: 650px;
+        height: min(650px, 95vh);
 
         border-radius: 25px;
 
         position: relative;
 
         overflow-y: auto;
+
+        overflow-x: hidden;
+
     }
 
 
     .pergunta {
-        width: 100%;
+
+        width: 90%;
+
+        margin: 50px auto 0 auto;
 
         text-align: center;
 
         font-size: 28px;
+
         font-family: Arial, Helvetica, sans-serif;
 
-        margin-top: 50px;
+        overflow-wrap: break-word;
+
     }
 
 
     .opcoes {
+
         position: absolute;
 
-        left: 20px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
         top: 40%;
 
+        width: 90%;
+
         display: flex;
+
         flex-direction: column;
 
-        gap: 25px;
+        gap: 15px;
+
     }
 
 
     .opcoes button {
-        width: 400px;
-        height: 60px;
+
+        width: 100%;
+
+        min-height: 60px;
+
+        height: auto;
 
         padding: 15px;
 
         border: none;
+
         border-radius: 15px;
 
         color: black;
+
+        background-color: white;
+
         cursor: pointer;
 
-        font-size: 18px;
+        font-size: 20px;
+
         font-family: 'Courier New', Courier, monospace;
-        font: bold;
+
         text-align: left;
+
+        overflow-wrap: break-word;
+
+        transition: 0.2s;
+
+    }
+
+
+    .opcoes button:hover {
+
+        transform: scale(1.02);
+
+        background-color: #dddddd;
+
     }
 
 
     /* BOTÃO REVISAR */
 
     #revisar {
+
         display: none;
 
         margin: 30px auto;
 
-        width: 250px;
-        height: 60px;
+        width: 80%;
+
+        max-width: 300px;
+
+        min-height: 60px;
 
         border: none;
+
         border-radius: 15px;
 
-        background-color: rgb(188, 188, 188);
+        background-color: white;
 
-        font-size: 22px;
+        color: black;
+
+        font-size: 20px;
+
         font-weight: bold;
 
         cursor: pointer;
+
+    }
+
+
+    #revisar:hover {
+
+        background-color: #dddddd;
+
     }
 
 
     /* ÁREA DA REVISÃO */
 
     #revisao {
+
         display: none;
 
         padding: 20px;
 
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 20px;
+
     }
 
 
     .questao-revisao {
+
         margin-bottom: 30px;
+
+        overflow-wrap: break-word;
+
     }
 
 
     .questao-revisao h2 {
+
         font-size: 20px;
+
+    }
+
+
+    .questao-revisao p {
+
+        font-size: 17px;
+
     }
 
 
     .acertou {
+
         color: green;
+
         font-weight: bold;
+
     }
 
 
     .errou {
+
         color: red;
+
         font-weight: bold;
+
+    }
+
+
+    /* CELULAR */
+
+    @media (max-width: 600px) {
+
+
+        body {
+
+            padding: 5px;
+
+        }
+
+
+        .box {
+
+            width: 96vw;
+
+            height: 96vh;
+
+            border-radius: 20px;
+
+        }
+
+
+        .pergunta {
+
+            width: 85%;
+
+            margin-top: 35px;
+
+            font-size: 22px;
+
+        }
+
+
+        .opcoes {
+
+            top: 35%;
+
+            width: 85%;
+
+            gap: 12px;
+
+        }
+
+
+        .opcoes button {
+
+            min-height: 55px;
+
+            padding: 12px;
+
+            font-size: 16px;
+
+            border-radius: 12px;
+
+        }
+
+
+        #revisar {
+
+            font-size: 18px;
+
+        }
+
+
+        #revisao {
+
+            padding: 15px;
+
+        }
+
+
+        .questao-revisao h2 {
+
+            font-size: 18px;
+
+        }
+
+
+        .questao-revisao p {
+
+            font-size: 15px;
+
+        }
+
     }
 
 </style>
@@ -148,156 +329,301 @@
 
 <body>
 
+
     <div class="box">
 
+
         <h1 class="pergunta">
+
             Qual é a principal função da reprodução nos seres vivos?
+
         </h1>
 
 
         <div class="opcoes">
 
-            <button>A) Produzir energia para o organismo</button>
-            <button>B) Permitir a continuidade da espécie</button>
-            <button>C) Aumentar o tamanho dos indivíduos</button>
-            <button>D) Controlar a temperatura corporal</button>
+            <button>
+
+                A) Produzir energia para o organismo
+
+            </button>
+
+
+            <button>
+
+                B) Permitir a continuidade da espécie
+
+            </button>
+
+
+            <button>
+
+                C) Aumentar o tamanho dos indivíduos
+
+            </button>
+
+
+            <button>
+
+                D) Controlar a temperatura corporal
+
+            </button>
 
         </div>
 
 
         <button id="revisar">
+
             Revisar respostas
+
         </button>
 
 
         <div id="revisao"></div>
+
 
     </div>
 
 
 <script>
 
+
+    // =========================
+    // PERGUNTAS
+    // =========================
+
+
     const perguntas = [
 
+
         {
+
             pergunta: "Qual é a principal função da reprodução nos seres vivos?",
+
             opcoes: [
+
                 "A) Produzir energia para o organismo",
+
                 "B) Permitir a continuidade da espécie",
+
                 "C) Aumentar o tamanho dos indivíduos",
+
                 "D) Controlar a temperatura corporal"
+
             ],
+
             correta: 1
+
         },
 
+
         {
+
             pergunta: "Qual é o principal órgão responsável pela produção dos espermatozoides?",
+
             opcoes: [
+
                 "A) Próstata",
+
                 "B) Pênis",
+
                 "C) Testículos",
+
                 "D) Uretra"
+
             ],
+
             correta: 2
+
         },
 
+
         {
+
             pergunta: "Qual é a função dos ovários no sistema reprodutor feminino?",
+
             opcoes: [
+
                 "A) Produzir óvulos e hormônios sexuais",
+
                 "B) Produzir espermatozoides",
+
                 "C) Armazenar o sêmen",
+
                 "D) Transportar a urina"
+
             ],
+
             correta: 0
+
         },
 
+
         {
+
             pergunta: "Em condições normais, onde ocorre a fecundação humana?",
+
             opcoes: [
+
                 "A) No útero",
+
                 "B) Na vagina",
+
                 "C) Nas tubas uterinas",
+
                 "D) Nos ovários"
+
             ],
+
             correta: 2
+
         },
 
+
         {
+
             pergunta: "O que acontece durante a fecundação?",
+
             opcoes: [
+
                 "A) O óvulo é produzido pelo útero",
+
                 "B) Um espermatozoide se une ao óvulo",
+
                 "C) O embrião é eliminado do organismo",
+
                 "D) O espermatozoide se transforma em óvulo"
+
             ],
+
             correta: 1
+
         },
 
+
         {
+
             pergunta: "Qual é a função do útero?",
+
             opcoes: [
+
                 "A) Produzir espermatozoides",
+
                 "B) Produzir óvulos",
+
                 "C) Ser o local onde o embrião se desenvolve",
+
                 "D) Produzir o sêmen"
+
             ],
+
             correta: 2
+
         },
 
+
         {
+
             pergunta: "Qual órgão do sistema reprodutor masculino também participa da passagem da urina?",
+
             opcoes: [
+
                 "A) Uretra",
+
                 "B) Testículo",
+
                 "C) Próstata",
+
                 "D) Epidídimo"
+
             ],
+
             correta: 0
+
         },
 
+
         {
+
             pergunta: "O que é a menstruação?",
+
             opcoes: [
+
                 "A) A liberação de espermatozoides",
+
                 "B) A eliminação do revestimento do útero quando não ocorre gravidez",
+
                 "C) A fecundação do óvulo",
+
                 "D) A produção de um novo óvulo"
+
             ],
+
             correta: 1
+
         },
 
+
         {
+
             pergunta: "Qual hormônio está principalmente relacionado ao desenvolvimento das características sexuais masculinas?",
+
             opcoes: [
+
                 "A) Estrogênio",
+
                 "B) Progesterona",
+
                 "C) Testosterona",
+
                 "D) Insulina"
+
             ],
+
             correta: 2
+
         },
 
+
         {
+
             pergunta: "Por que a reprodução é importante para a perpetuação das espécies?",
+
             opcoes: [
+
                 "A) Porque impede que os indivíduos envelheçam",
+
                 "B) Porque permite o surgimento de novos indivíduos da espécie",
+
                 "C) Porque aumenta a quantidade de alimentos disponíveis",
+
                 "D) Porque faz todos os indivíduos serem geneticamente iguais"
+
             ],
+
             correta: 1
+
         }
 
+
     ];
+
+
+    // =========================
+    // VARIÁVEIS
+    // =========================
 
 
     let perguntaAtual = 0;
 
     let acertos = 0;
 
-    // Guarda a resposta escolhida em cada questão
     let respostas = [];
+
+
+    // =========================
+    // ELEMENTOS DO HTML
+    // =========================
 
 
     const pergunta = document.querySelector(".pergunta");
@@ -311,9 +637,16 @@
     const revisao = document.querySelector("#revisao");
 
 
+    // =========================
+    // MOSTRAR PERGUNTA
+    // =========================
+
+
     function mostrarPergunta() {
 
+
         const atual = perguntas[perguntaAtual];
+
 
         pergunta.textContent = atual.pergunta;
 
@@ -324,21 +657,31 @@
 
         });
 
+
     }
+
+
+    // =========================
+    // CLICAR NAS RESPOSTAS
+    // =========================
 
 
     botoes.forEach((botao, indice) => {
 
+
         botao.addEventListener("click", () => {
+
 
             const atual = perguntas[perguntaAtual];
 
 
             // Guarda a resposta escolhida
+
             respostas[perguntaAtual] = indice;
 
 
             // Verifica se acertou
+
             if (indice === atual.correta) {
 
                 acertos++;
@@ -346,34 +689,54 @@
             }
 
 
+            // Vai para a próxima pergunta
+
             perguntaAtual++;
 
 
             if (perguntaAtual < perguntas.length) {
 
+
                 mostrarPergunta();
+
 
             }
 
             else {
 
+
+                // Mostra o resultado
+
                 pergunta.textContent =
                     `Você acertou ${acertos} de ${perguntas.length}!`;
 
+
+                // Esconde as alternativas
+
                 opcoes.style.display = "none";
+
+
+                // Mostra botão de revisão
 
                 botaoRevisar.style.display = "block";
 
+
             }
 
+
         });
+
 
     });
 
 
-    // Quando clicar em "Revisar respostas"
+    // =========================
+    // REVISAR RESPOSTAS
+    // =========================
+
 
     botaoRevisar.addEventListener("click", () => {
+
 
         pergunta.style.display = "none";
 
@@ -384,12 +747,15 @@
 
         perguntas.forEach((questao, indice) => {
 
+
             const respostaUsuario = respostas[indice];
+
 
             const acertou = respostaUsuario === questao.correta;
 
 
             const div = document.createElement("div");
+
 
             div.classList.add("questao-revisao");
 
@@ -397,22 +763,37 @@
             div.innerHTML = `
 
                 <h2>
+
                     ${indice + 1}. ${questao.pergunta}
+
                 </h2>
 
-                <p>
-                    Sua resposta:
-                    <strong>
-                        ${questao.opcoes[respostaUsuario]}
-                    </strong>
-                </p>
 
                 <p>
-                    Resposta correta:
+
+                    Sua resposta:
+
                     <strong>
-                        ${questao.opcoes[questao.correta]}
+
+                        ${questao.opcoes[respostaUsuario]}
+
                     </strong>
+
                 </p>
+
+
+                <p>
+
+                    Resposta correta:
+
+                    <strong>
+
+                        ${questao.opcoes[questao.correta]}
+
+                    </strong>
+
+                </p>
+
 
                 <p class="${acertou ? "acertou" : "errou"}">
 
@@ -425,14 +806,23 @@
 
             revisao.appendChild(div);
 
+
         });
+
 
     });
 
 
+    // =========================
+    // INICIAR QUIZ
+    // =========================
+
+
     mostrarPergunta();
 
+
 </script>
+
 
 </body>
 
