@@ -38,6 +38,8 @@
     }
 
 
+    /* PAPEL */
+
     .box {
 
         background-image: url("paperpng.png");
@@ -50,9 +52,13 @@
 
         box-shadow: 0px 0px 35px white;
 
-        width: min(500px, 95vw);
+        width: 90vw;
 
-        height: min(650px, 95vh);
+        max-width: 500px;
+
+        height: 90vh;
+
+        max-height: 700px;
 
         border-radius: 25px;
 
@@ -64,6 +70,8 @@
 
     }
 
+
+    /* PERGUNTA */
 
     .pergunta {
 
@@ -81,6 +89,8 @@
 
     }
 
+
+    /* OPÇÕES */
 
     .opcoes {
 
@@ -237,7 +247,9 @@
     }
 
 
+    /* ========================= */
     /* CELULAR */
+    /* ========================= */
 
     @media (max-width: 600px) {
 
@@ -251,9 +263,13 @@
 
         .box {
 
-            width: 96vw;
+            width: 94vw;
 
-            height: 96vh;
+            height: 94vh;
+
+            max-width: none;
+
+            max-height: none;
 
             border-radius: 20px;
 
@@ -605,7 +621,6 @@
 
         }
 
-
     ];
 
 
@@ -622,7 +637,7 @@
 
 
     // =========================
-    // ELEMENTOS DO HTML
+    // ELEMENTOS
     // =========================
 
 
@@ -675,7 +690,7 @@
             const atual = perguntas[perguntaAtual];
 
 
-            // Guarda a resposta escolhida
+            // Guarda a resposta
 
             respostas[perguntaAtual] = indice;
 
@@ -689,7 +704,7 @@
             }
 
 
-            // Vai para a próxima pergunta
+            // Próxima pergunta
 
             perguntaAtual++;
 
@@ -705,21 +720,20 @@
             else {
 
 
-                // Mostra o resultado
+                // Resultado final
 
                 pergunta.textContent =
                     `Você acertou ${acertos} de ${perguntas.length}!`;
 
 
-                // Esconde as alternativas
+                // Esconde opções
 
                 opcoes.style.display = "none";
 
 
-                // Mostra botão de revisão
+                // Mostra botão
 
                 botaoRevisar.style.display = "block";
-
 
             }
 
@@ -749,7 +763,6 @@
 
 
             const respostaUsuario = respostas[indice];
-
 
             const acertou = respostaUsuario === questao.correta;
 
@@ -814,7 +827,7 @@
 
 
     // =========================
-    // INICIAR QUIZ
+    // COMEÇAR
     // =========================
 
 
